@@ -17,7 +17,7 @@ pipeline{
               steps{
             sshagent(['tomcat-ID-deploy'])
               sh """
-                    scp -o StrictHostKeyChecking=no  ec2-user@172.31.16.182:/opt/apache-tomcat-9.0.31/webapps
+                    scp -o StrictHostKeyChecking=no target/app.war ec2-user@172.31.16.182:/opt/apache-tomcat-9.0.31/webapps
 
                     ssh ec2-user@172.31.16.182 /opt/apache-tomcat-9.0.31/shutdown.sh
                     ssh ec2-user@172.31.16.182 /opt/apache-tomcat-9.0.31/startup.sh
