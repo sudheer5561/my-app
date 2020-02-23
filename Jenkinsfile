@@ -1,7 +1,7 @@
 pipeline{
     agent any
         stages{
-            stage('SCM GIT Checkout') {
+            stage('SCM GIT Checkout 1') {
                 steps{
                 git 'https://github.com/sudheer5561/my-app.git'
                 }
