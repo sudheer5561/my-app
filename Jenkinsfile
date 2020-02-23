@@ -14,7 +14,8 @@ pipeline{
             }
 
             stage('Deploy in development') {
-            sshagent(['tomcat-ID-deploy']) {
+              steps{
+            sshagent(['tomcat-ID-deploy'])
               sh """
                     scp -o StrictHostKeyChecking=no  ec2-user@172.31.16.182:/opt/apache-tomcat-9.0.31/webapps
 
@@ -26,6 +27,7 @@ pipeline{
             }
           
           }
-                
+            
+          
         }
 }
