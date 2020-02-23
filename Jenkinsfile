@@ -1,7 +1,7 @@
 pipeline{
     agent any
         stages{
-            stage('SCM GIT Checkout 2') {
+            stage('SCM GIT Checkout') {
                 steps{
                 git 'https://github.com/sudheer5561/my-app.git'
                 }
@@ -21,8 +21,8 @@ pipeline{
 
             sh 'scp -o StrictHostKeyChecking=no target/app.war ec2-user@172.31.16.182:/opt/apache-tomcat-9.0.31/webapps'
 
-            sh 'ssh ec2-user@172.31.16.182 /opt/apache-tomcat-9.0.31/shutdown.sh'
-            sh 'ssh ec2-user@172.31.16.182 /opt/apache-tomcat-9.0.31/startup.sh'
+            sh 'ssh ec2-user@172.31.16.182 /opt/apache-tomcat-9.0.31/bin/shutdown.sh'
+            sh 'ssh ec2-user@172.31.16.182 /opt/apache-tomcat-9.0.31/bin/startup.sh'
 
 
             }
