@@ -28,8 +28,8 @@ pipeline{
                     sh """
                 scp -o StrictHostKeyChecking=no target/myapp.war root@172.31.16.182:/opt/apache-tomcat-9.0.31/webapps/
 
-                /opt/apache-tomcat-9.0.31/bin/shutdown.sh
-                /opt/apache-tomcat-9.0.31/bin/startup.sh
+                sh '/opt/apache-tomcat-9.0.31/bin/shutdown.sh'
+                sh '/opt/apache-tomcat-9.0.31/bin/startup.sh'
 
                     """      
                                      
