@@ -24,7 +24,7 @@ pipeline{
 
         stage('Deploy'){
             steps{
-                sshagent(['tomcat-ROOT-id']) {
+                sshagent(['tomcat-root-ID']) {
                     sh """
                 scp -o StrictHostKeyChecking=no target/myapp.war root@172.31.16.182:/opt/apache-tomcat-9.0.31/webapps/
 
